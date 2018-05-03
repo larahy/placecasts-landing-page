@@ -7,7 +7,7 @@ block prepend body
     
     // Homepage Banner Section
     - var banner = pageContent.data.homepage_banner[0]
-    section.homepage-banner(style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + banner.image.url + ')')
+    section.homepage-banner(style='background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(' + banner.image.url + ')')
       .banner-content.container
         h2.banner-title
           != PrismicDOM.RichText.asText(banner.title)

@@ -18,7 +18,7 @@ module.exports = function() {
   app.set('port', process.env.PORT || 3000);
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'pug');
-  app.use(favicon("public/images/punch.png"));
+  app.use(favicon("public/images/icon-black.svg"));
   app.use(logger('dev'));
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
