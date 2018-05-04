@@ -76,12 +76,13 @@ app.get('/preview', (req, res) => {
 app.get('/:uid', (req, res, next) => {
   // Store the param uid in a variable
   const uid = req.params.uid;
-  
   // Get a page by its uid
-  req.prismic.api.getByUID("page", uid)
+  req.prismic.api.getByUID("post", uid)
   .then((pageContent) => {
     if (pageContent) {
-      res.render('page', { pageContent });
+      // console.log('some page content arrived', pageContent.data)
+      console.log('some post content arrived', JSON.stringify(pageContent.data.body))
+      res.render('post', { pageContent });
     } else {
       res.status(404).render('404');
     }
@@ -98,6 +99,8 @@ app.get('/', (req, res, next) => {
   req.prismic.api.getSingle("homepage")
   .then((pageContent) => {
     if (pageContent) {
+      console.log('some page content arrived at root', JSON.stringify(pageContent.data["page_content"]))
+
       res.render('homepage', { pageContent });
     } else {
       res.status(404).send('Could not find a homepage document. Make sure you create and publish a homepage document in your repository.');
